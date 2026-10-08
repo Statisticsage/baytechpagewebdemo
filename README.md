@@ -17,7 +17,7 @@ Each demo is a single HTML file. No npm. No build step. No frameworks. Open it, 
 | 1 | **SweetBites Cookie Restaurant** | Restaurant | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/SweetBites%20_%20Cookie%20Restaurant.html) |
 | 2 | **SweetBites 3D Experience** | Restaurant | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/SweetBites%20Cookie%20Restaurant3D.html) |
 | 3 | **Golden Crumb Bakery** | Restaurant | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/Golden%20Crumb%20Bakery.html) |
-| 4 | **3D Scroll Experience** | Restaurant | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/3d2.html) |
+| 4 | **banking dashboard** | Restaurant | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/bankingdashboard.html) |
 | 5 | **Sample Academy** | School | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/Sample%20Academy.html) |
 | 6 | **Northbridge International School** | School | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/Northbridge%20International%20School.html) |
 | 7 | **School Management System** | School | [Live Preview →](https://statisticsage.github.io/baytechpagewebdemo/School%20Management%20System1.html) |
