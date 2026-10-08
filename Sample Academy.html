@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Sample Academy | School site and Owner Portal by Baytechpage</title>
+<style>
+:root{--bg:#F6F9FC;--fg:#122238;--mut:#58697A;--card:#fff;--line:#DDE7F0;--acc:#0E7490;--acc2:#F59E0B;--navy:#0B2545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081628;--fg:#E8F1FA;--mut:#9FB4C8;--card:#0F2441;--line:#1D3C60}}
+:root[data-theme="dark"]{--bg:#081628;--fg:#E8F1FA;--mut:#9FB4C8;--card:#0F2441;--line:#1D3C60}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,"Times New Roman",serif;line-height:1.55}
+.sans,button,input,select,textarea,nav,.tabs,.tbl,.k{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.demo{background:#FEF3C7;color:#92400E;font:12.5px system-ui,sans-serif;text-align:center;padding:6px}
+.tabs{display:flex;gap:6px;justify-content:center;padding:10px;background:var(--navy)}.tabs button{background:transparent;color:#BBD3EA;border:1px solid #365A82;padding:9px 16px;border-radius:99px;cursor:pointer;font-weight:600}.tabs button.on{background:var(--acc2);color:#2b1a00;border-color:var(--acc2)}
+.v{display:none}.v.on{display:block;animation:fade .5s}@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+.hero{background:linear-gradient(120deg,var(--navy),#0E5C73);color:#fff;padding:70px 0 80px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:rgba(245,158,11,.25);animation:pulse 9s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.2)}}
+.hero h1{font-size:clamp(34px,6vw,56px);margin:0 0 10px;position:relative}.hero p{max-width:520px;color:#CFE3F3;position:relative}
+.cta{display:inline-block;background:var(--acc2);color:#2b1a00;font:700 15px system-ui,sans-serif;padding:13px 22px;border-radius:99px;border:0;cursor:pointer;text-decoration:none;position:relative}
+section{padding:46px 0}h2{font-size:30px;margin:0 0 6px}.g{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(11,37,69,.14)}
+.ico{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--navy));margin-bottom:10px}.news{border-left:4px solid var(--acc2)}.news small{color:var(--mut)}
+form.ap{display:grid;gap:10px;max-width:480px}input,select,textarea{font-size:15px;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.pt{max-width:1040px;margin:0 auto;padding:18px}.login{max-width:360px;margin:60px auto;text-align:center}.k{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:14px}.k .card b{font-size:26px;display:block}.k small{color:var(--mut)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th{text-align:left;font-size:11.5px;color:var(--mut);padding:6px 4px}.tbl td{padding:9px 4px;border-top:1px solid var(--line)}
+.pill{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:99px;display:inline-block}.o{background:#DCFCE7;color:#15803D}.w{background:#FEF3C7;color:#B45309}.r{background:#FEE2E2;color:#B91C1C}
+.sm{padding:6px 11px;border-radius:8px;border:0;background:var(--acc);color:#fff;cursor:pointer;font-size:13px}.bar{height:9px;background:var(--line);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc);transition:width .7s}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,90px);background:var(--navy);color:#fff;padding:11px 18px;border-radius:99px;transition:transform .35s;font:14px system-ui,sans-serif}.toast.on{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--mut);padding:24px;font:13px system-ui,sans-serif}
+</style></head><body>
+<div class="demo">Demo by Baytechpage. Sample school and sample data. Everything you add in the portal appears on the site.</div>
+<div class="tabs"><button class="on" data-v="site">Public school site</button><button data-v="portal">Owner Portal (private)</button></div>
+<div class="v on" id="site">
+<header class="hero"><div class="wrap"><div class="sans" style="letter-spacing:.2em;font-size:12px;color:#F7C873">SAMPLE ACADEMY &bull; MONROVIA</div><h1>Where every child is known by name.</h1><p>Admissions are open for the new school year. Learn with caring teachers, in a safe and disciplined school.</p><a class="cta" href="#apply">Apply for admission</a></div></header>
+<section><div class="wrap"><h2>Why families choose us</h2><p style="color:var(--mut)">Simple, honest education.</p><div class="g"><div class="card"><div class="ico"></div><b>Caring teachers</b><p>Small classes and close attention.</p></div><div class="card"><div class="ico"></div><b>Strong foundations</b><p>Reading, mathematics and science first.</p></div><div class="card"><div class="ico"></div><b>Safe campus</b><p>Discipline, respect and community.</p></div></div></div></section>
+<section style="background:var(--card)"><div class="wrap"><h2>School news</h2><p style="color:var(--mut)">Posted from the private Owner Portal.</p><div class="g" id="news"></div></div></section>
+<section id="apply"><div class="wrap"><h2>Apply for admission</h2><form class="ap" id="apf"><input id="an" placeholder="Child's full name" required><select id="ag"><option>Nursery</option><option>Grade 1</option><option>Grade 4</option><option>Grade 7</option></select><input id="ap" placeholder="Parent phone" required><button class="cta">Submit application</button></form></div></section></div>
+<div class="v" id="portal"><div class="pt"><div id="lg" class="login card"><h2>Owner Portal</h2><p style="color:var(--mut)">Private login for the school owner.</p><input placeholder="Email" style="width:100%;margin-bottom:8px" value="owner@sampleacademy.example"><button class="cta" id="enter" style="width:100%">Sign in (demo)</button></div>
+<div id="dash" style="display:none"><div class="k"><div class="card"><small>NEW APPLICATIONS</small><b id="kA"></b></div><div class="card"><small>FEES COLLECTED</small><b id="kF"></b></div><div class="card"><small>OUTSTANDING</small><b id="kO"></b></div><div class="card"><small>ANNOUNCEMENTS LIVE</small><b id="kN"></b></div></div>
+<div class="g"><div class="card"><h3>Admissions</h3><table class="tbl"><tbody id="tA"></tbody></table></div><div class="card"><h3>Post an announcement</h3><form class="ap" id="nf" style="max-width:none"><input id="nt" placeholder="Title" required><textarea id="nb" rows="2" placeholder="Message" required></textarea><button class="cta">Publish to website</button></form></div></div>
+<div class="card" style="margin-top:14px"><h3>Fees</h3><table class="tbl"><thead><tr><th>STUDENT</th><th>CLASS</th><th>PAID</th><th>BALANCE</th><th></th></tr></thead><tbody id="tF"></tbody></table></div></div></div></div>
+<footer>Sample school site and portal built by Baytechpage &bull; Baytechpage@gmail.com</footer><div class="toast" id="toast"></div>
+<script>
+var A=[{n:"Grace Kollie",g:"Grade 1",s:"New"},{n:"Samuel Doe",g:"Nursery",s:"New"},{n:"Mercy Tolbert",g:"Grade 4",s:"Approved"}],
+N=[{t:"Admissions open",b:"Applications for the new school year are now being received."},{t:"Parents meeting",b:"All parents are invited to meet the principal this Saturday."}],
+F=[{n:"Joseph Toe",c:"Grade 3",p:150,t:300},{n:"Hawa Sesay",c:"Grade 1",p:300,t:300},{n:"Peter Wesley",c:"Grade 6",p:100,t:350},{n:"Ruth Cole",c:"Nursery",p:200,t:250}];
+function $(i){return document.getElementById(i)}function m(v){return"$"+v.toLocaleString()}
+function toast(s){var t=$("toast");t.textContent=s;t.classList.add("on");setTimeout(function(){t.classList.remove("on")},1800)}
+function R(){$("news").innerHTML=N.map(function(x){return"<div class='card news'><b>"+x.t+"</b><p>"+x.b+"</p><small>Posted by the school</small></div>"}).join("");
+$("kA").textContent=A.filter(function(x){return x.s=="New"}).length;var pd=F.reduce(function(a,x){return a+x.p},0),tt=F.reduce(function(a,x){return a+x.t},0);$("kF").textContent=m(pd);$("kO").textContent=m(tt-pd);$("kN").textContent=N.length;
+$("tA").innerHTML=A.map(function(x,i){return"<tr><td><b>"+x.n+"</b><br><small style='color:var(--mut)'>"+x.g+"</small></td><td><span class='pill "+(x.s=="New"?"w":"o")+"'>"+x.s+"</span></td><td>"+(x.s=="New"?"<button class='sm' onclick='ap("+i+")'>Approve</button>":"")+"</td></tr>"}).join("");
+$("tF").innerHTML=F.map(function(x,i){var b=x.t-x.p;return"<tr><td><b>"+x.n+"</b></td><td>"+x.c+"</td><td style='width:26%'><div class='bar'><i style='width:"+(x.p/x.t*100)+"%'></i></div></td><td>"+(b?"<span class='pill r'>"+m(b)+"</span>":"<span class='pill o'>Paid</span>")+"</td><td>"+(b?"<button class='sm' onclick='pay("+i+")'>Record $50</button>":"")+"</td></tr>"}).join("")}
+function ap(i){A[i].s="Approved";R();toast("Application approved")}function pay(i){F[i].p=Math.min(F[i].t,F[i].p+50);R();toast("Payment recorded")}
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){document.querySelectorAll(".tabs button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");document.querySelectorAll(".v").forEach(function(v){v.classList.remove("on")});$(b.dataset.v).classList.add("on")}});
+$("enter").onclick=function(){$("lg").style.display="none";$("dash").style.display="block"};
+$("apf").onsubmit=function(e){e.preventDefault();A.unshift({n:$("an").value,g:$("ag").value,s:"New"});R();e.target.reset();toast("Application sent. See it in the Owner Portal.")};
+$("nf").onsubmit=function(e){e.preventDefault();N.unshift({t:$("nt").value,b:$("nb").value});R();e.target.reset();toast("Published. Check the public site.")};R();
+</script></body></html>

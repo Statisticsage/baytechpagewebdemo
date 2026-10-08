@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Northbridge International School — School Website Template by Baytechpage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F2E7;
+    --cream:#FCFAF3;
+    --ink:#17241D;
+    --ink-soft: rgba(23,36,29,0.68);
+    --brand:#1F3B2E;
+    --brand-soft:#2F5A44;
+    --brand-100:#E6EDE4;
+    --gold:#C99A3B;
+    --gold-dark:#A97F2C;
+    --clay:#B0543A;
+    --line: rgba(23,36,29,0.14);
+    --radius: 3px;
+    --font-display:'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12201A;
+      --cream:#182720;
+      --ink:#ECE7D9;
+      --ink-soft: rgba(236,231,217,0.7);
+      --brand-100:#1D2E25;
+      --line: rgba(236,231,217,0.14);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12201A;
+    --cream:#182720;
+    --ink:#ECE7D9;
+    --ink-soft: rgba(236,231,217,0.7);
+    --brand-100:#1D2E25;
+    --line: rgba(236,231,217,0.14);
+  }
+  html{ scroll-padding-top: 76px; }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,svg{ max-width:100%; display:block; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+  a{ color: inherit; }
+  h1,h2,h3{ font-family: var(--font-display); font-weight:600; margin:0 0 .5em; letter-spacing:-0.01em; }
+  p{ margin:0 0 1em; color: var(--ink-soft); max-width:62ch; }
+  section{ scroll-margin-top: 84px; }
+  .eyebrow{ font-family: var(--font-body); font-size:.85rem; color: var(--brand); font-weight:600; }
+  :root[data-theme="dark"] .eyebrow, .eyebrow{ color: var(--gold-dark); }
+
+  /* demo banner */
+  .demo-banner{ background:#0D1B14; color:#F7F2E7; text-align:center; font-size:.82rem; padding:9px 24px; position:relative; z-index:60; }
+  .demo-banner .wrap{ display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; padding:0; }
+  .demo-banner a{ color:#1F3B2E; background:#C99A3B; padding:5px 14px; border-radius:3px; text-decoration:none; font-weight:600; font-size:.78rem; }
+  .demo-banner a:hover{ background:#A97F2C; }
+
+  /* header */
+  header.site{
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+    background: #1F3B2E; color:#F7F2E7;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1180px; margin:0 auto; gap:16px; }
+  .brandmark{ display:flex; align-items:center; gap:10px; text-decoration:none; color:#F7F2E7; }
+  .brandmark svg{ width:30px; height:30px; flex:none; }
+  .brandmark .name{ font-family: var(--font-display); font-weight:600; font-size:1.05rem; line-height:1.15; }
+  .brandmark .name small{ display:block; font-family: var(--font-body); font-weight:400; font-size:.72rem; opacity:.75; }
+  nav.links{ display:flex; align-items:center; gap:22px; }
+  nav.links a{ text-decoration:none; font-size:.92rem; color: rgba(247,242,231,.85); }
+  nav.links a:hover{ color:#fff; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; border-radius: var(--radius);
+    padding:10px 18px; font-family: var(--font-body); font-weight:600; font-size:.92rem;
+    text-decoration:none; border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{ background: var(--gold); color:#1F3B2E; }
+  .btn-primary:hover{ background: var(--gold-dark); }
+  .btn-ghost{ background:transparent; border-color: rgba(247,242,231,.4); color:#F7F2E7; }
+  .btn-ghost:hover{ border-color:#fff; }
+  .btn-outline{ background:transparent; border-color: var(--brand); color: var(--brand); }
+  :root[data-theme="dark"] .btn-outline{ border-color: var(--gold); color: var(--gold); }
+  .navtoggle{ display:none; }
+
+  /* hero */
+  .hero{ padding:76px 0 64px; }
+  .hero .wrap{ display:grid; grid-template-columns: 1.1fr .9fr; gap:56px; align-items:center; }
+  .hero .tag{ font-size:.85rem; color: var(--ink-soft); margin-bottom:14px; }
+  .hero h1{ font-size: clamp(2.1rem, 4.4vw, 3.4rem); line-height:1.08; }
+  .hero p.lead{ font-size:1.08rem; max-width:52ch; }
+  .hero .actions{ display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
+  .hero .art{ position:relative; }
+
+  .facts{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); background: var(--cream); }
+  .facts .wrap{ display:flex; flex-wrap:wrap; gap:0; padding:0; }
+  .facts .fact{ flex:1 1 220px; padding:22px 24px; border-right:1px solid var(--line); }
+  .facts .fact:last-child{ border-right:none; }
+  .facts .fact strong{ display:block; font-family: var(--font-display); font-size:1.05rem; margin-bottom:4px; }
+  .facts .fact span{ font-size:.88rem; color: var(--ink-soft); }
+
+  section.pad{ padding:76px 0; }
+  .section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:40px; flex-wrap:wrap; }
+  .section-head h2{ font-size: clamp(1.6rem, 2.8vw, 2.2rem); max-width:20ch; }
+
+  /* about */
+  .about-grid{ display:grid; grid-template-columns: .85fr 1.15fr; gap:56px; align-items:center; }
+  .founders{ display:flex; gap:16px; margin-top:22px; }
+  .founder{ display:flex; align-items:center; gap:10px; }
+  .founder svg{ width:38px; height:38px; }
+  .founder .fname{ font-weight:600; font-size:.92rem; }
+  .founder .frole{ font-size:.78rem; color: var(--ink-soft); }
+  .motto{ margin-top:26px; padding:18px 20px; border-left:3px solid var(--gold); background: var(--cream); font-family: var(--font-display); font-style:italic; }
+
+  /* programs */
+  .program{ display:grid; grid-template-columns: 120px 1fr; gap:28px; padding:26px 0; border-top:1px solid var(--line); align-items:start; }
+  .program:last-child{ border-bottom:1px solid var(--line); }
+  .program .stage{ font-family: var(--font-display); font-size:1rem; color: var(--gold-dark); padding-top:2px; }
+  .program h3{ font-size:1.25rem; margin-bottom:6px; }
+  .program p{ margin:0; }
+
+  /* why */
+  .why-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:36px; }
+  .why-item svg{ width:34px; height:34px; margin-bottom:16px; }
+  .why-item h3{ font-size:1.1rem; margin-bottom:8px; }
+  .why-item p{ font-size:.95rem; }
+
+  /* admissions */
+  .admissions{ background: var(--brand-100); }
+  .steps{ display:grid; grid-template-columns: repeat(4,1fr); gap:0; }
+  .step{ padding:22px 22px 22px 0; border-left:1px solid var(--line); padding-left:22px; }
+  .step:first-child{ border-left:none; padding-left:0; }
+  .step .num{ font-family: var(--font-display); font-size:1.6rem; color: var(--gold-dark); display:block; margin-bottom:10px; }
+  .step h4{ margin:0 0 6px; font-size:1rem; font-family: var(--font-body); font-weight:600; }
+  .step p{ font-size:.9rem; margin:0; }
+  .admit-cta{ margin-top:40px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; padding-top:32px; border-top:1px solid var(--line); }
+  .admit-cta p{ margin:0; max-width:46ch; }
+
+  /* gallery */
+  .gallery-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:16px; }
+  .gtile{ aspect-ratio:4/5; border-radius: var(--radius); overflow:hidden; background: var(--brand); position:relative; }
+  .gtile svg{ width:100%; height:100%; }
+  .gtile .cap{ position:absolute; bottom:0; left:0; right:0; padding:10px 12px; font-size:.78rem; color:#F7F2E7; background:linear-gradient(to top, rgba(0,0,0,.45), transparent); }
+
+  /* contact */
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; }
+  .contact-list{ list-style:none; padding:0; margin:0 0 22px; }
+  .contact-list li{ padding:12px 0; border-top:1px solid var(--line); display:flex; gap:14px; font-size:.95rem; }
+  .contact-list li:last-child{ border-bottom:1px solid var(--line); }
+  .contact-list svg{ width:18px; height:18px; flex:none; margin-top:2px; color: var(--gold-dark); }
+  form.msg{ display:grid; gap:14px; }
+  .field{ display:grid; gap:6px; }
+  .field label{ font-size:.82rem; font-weight:600; }
+  .field input, .field textarea{
+    font-family: var(--font-body); font-size:.95rem; padding:10px 12px; border-radius: var(--radius);
+    border:1px solid var(--line); background: var(--cream); color: var(--ink);
+  }
+  .field textarea{ min-height:100px; resize:vertical; }
+  .formnote{ font-size:.8rem; color: var(--ink-soft); margin-top:-4px; }
+
+  footer.site{ background:#12201A; color:#D9D4C6; padding:48px 0 28px; }
+  footer.site .wrap{ display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap:32px; }
+  footer.site h4{ font-family: var(--font-body); font-size:.85rem; color:#F7F2E7; margin:0 0 14px; }
+  footer.site a{ text-decoration:none; color:#B9C2B7; font-size:.9rem; display:block; margin-bottom:8px; }
+  footer.site a:hover{ color:#fff; }
+  footer.site .foot-bottom{ max-width:1180px; margin:32px auto 0; padding:20px 24px 0; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.78rem; color:#8FA08D; }
+
+  /* responsive */
+  @media (max-width: 880px){
+    nav.links{ display:none; }
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero .art{ order:-1; max-width:280px; margin:0 auto; }
+    .about-grid, .contact-grid{ grid-template-columns:1fr; }
+    .why-grid{ grid-template-columns:1fr; gap:28px; }
+    .steps{ grid-template-columns:1fr 1fr; row-gap:24px; }
+    .step{ border-left:none; padding-left:0; }
+    .gallery-grid{ grid-template-columns:1fr 1fr; }
+    footer.site .wrap{ grid-template-columns:1fr; }
+    .facts .fact{ flex:1 1 50%; }
+  }
+  @media (max-width: 520px){
+    .steps{ grid-template-columns:1fr; }
+    .program{ grid-template-columns:1fr; gap:6px; }
+    .gallery-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ---------- Owner portal ---------- */
+  #portal{ min-height:100%; background: var(--paper); }
+  .portal-header{ background:#1F3B2E; color:#F7F2E7; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top: env(safe-area-inset-top,0px); z-index:50; }
+  .portal-header .brandmark{ color:#F7F2E7; }
+  .login-wrap{ min-height:calc(100vh - 66px); display:flex; align-items:center; justify-content:center; padding:40px 20px; }
+  .login-card{ width:100%; max-width:380px; background: var(--cream); border:1px solid var(--line); border-radius:6px; padding:32px; }
+  .login-card h2{ font-size:1.4rem; margin-bottom:6px; }
+  .login-card p.small{ font-size:.85rem; color: var(--ink-soft); margin-bottom:22px; }
+  .login-card .field{ margin-bottom:14px; }
+  .login-card .demo-note{ margin-top:16px; font-size:.78rem; padding:10px 12px; background: var(--brand-100); border-radius:4px; color: var(--ink-soft); }
+
+  .dash{ display:grid; grid-template-columns: 230px 1fr; min-height: calc(100vh - 66px); }
+  .dash-side{ border-right:1px solid var(--line); padding:22px 16px; background: var(--cream); }
+  .dash-side button{
+    display:flex; align-items:center; gap:10px; width:100%; text-align:left; padding:10px 12px; margin-bottom:4px;
+    background:none; border:none; border-radius: var(--radius); font-family: var(--font-body); font-size:.92rem; color: var(--ink); cursor:pointer;
+  }
+  .dash-side button.active{ background: var(--brand-100); font-weight:600; }
+  .dash-side svg{ width:16px; height:16px; opacity:.8; }
+  .dash-main{ padding:28px 32px; }
+  .dash-main h2{ font-size:1.5rem; margin-bottom:4px; }
+  .demo-badge{ display:inline-block; font-size:.7rem; font-weight:600; letter-spacing:.02em; color: var(--clay); background: rgba(176,84,58,.12); padding:3px 9px; border-radius:20px; margin-left:10px; vertical-align:middle; }
+  .tiles{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin:22px 0 36px; }
+  .tile{ border:1px solid var(--line); border-radius:6px; padding:18px; background: var(--cream); }
+  .tile .num{ font-family: var(--font-display); font-size:1.9rem; }
+  .tile .lbl{ font-size:.82rem; color: var(--ink-soft); }
+  table.dtable{ width:100%; border-collapse:collapse; font-size:.9rem; }
+  table.dtable th{ text-align:left; font-size:.78rem; text-transform:none; color: var(--ink-soft); font-weight:600; padding:8px 10px; border-bottom:1px solid var(--line); }
+  table.dtable td{ padding:10px; border-bottom:1px solid var(--line); }
+  table.dtable input{ width:100%; border:1px solid transparent; background:transparent; font-family:var(--font-body); font-size:.9rem; color:var(--ink); padding:4px 6px; border-radius:3px; }
+  table.dtable input:hover, table.dtable input:focus{ border-color: var(--line); background: var(--paper); outline:none; }
+  .status{ font-size:.76rem; padding:3px 9px; border-radius:20px; background: var(--brand-100); }
+  .panel{ display:none; }
+  .panel.active{ display:block; }
+  .add-form{ display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+  .add-form input, .add-form textarea{ font-family:var(--font-body); padding:9px 11px; border:1px solid var(--line); border-radius:4px; background:var(--paper); color:var(--ink); }
+  .add-form input[name=t]{ flex:1 1 220px; }
+  .add-form textarea{ flex:1 1 100%; min-height:60px; }
+  .ann-item{ padding:14px 0; border-top:1px solid var(--line); }
+  .ann-item:last-child{ border-bottom:1px solid var(--line); }
+  .ann-item h4{ margin:0 0 4px; font-size:.98rem; }
+  .ann-item .meta{ font-size:.76rem; color: var(--ink-soft); margin-bottom:6px; }
+  .ann-item p{ margin:0; font-size:.9rem; }
+  .del{ background:none; border:none; color: var(--clay); font-size:.78rem; cursor:pointer; padding:0; margin-top:6px; }
+  #portal[hidden], #app[hidden]{ display:none; }
+
+  @media (max-width: 760px){
+    .dash{ grid-template-columns:1fr; }
+    .dash-side{ display:flex; overflow-x:auto; border-right:none; border-bottom:1px solid var(--line); gap:6px; padding:12px; }
+    .dash-side button{ width:auto; white-space:nowrap; margin-bottom:0; }
+    .tiles{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= MARKETING SITE ================= -->
+<div id="app">
+<div class="demo-banner">
+  <div class="wrap">
+    <span>🎓 This is a live demo site by Baytechpage — built in days, not months.</span>
+    <a href="#getstarted">See how to get yours →</a>
+  </div>
+</div>
+<header class="site">
+  <div class="nav">
+    <a class="brandmark" href="#top">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#C99A3B" stroke-width="2"/><path d="M11 24l9-13 9 13" stroke="#F7F2E7" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M14 24h12" stroke="#C99A3B" stroke-width="2"/></svg>
+      <span class="name">Northbridge International<small>Early Childhood – Senior High</small></span>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#why">Why Us</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex; gap:10px;">
+      <button class="btn btn-ghost" onclick="openPortal()">Owner Portal</button>
+      <a class="btn btn-primary" href="#admissions">Plan a Visit</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="tag">Early Childhood through Senior High, One Campus</div>
+      <h1>Where your child begins school, and keeps going — all the way through senior high.</h1>
+      <p class="lead">A complete school website — early childhood, primary, junior and secondary — built to carry a child from their first classroom through graduation on one campus, under an administration your family can get to know for years, not one term.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#admissions">Start an Enquiry</a>
+        <a class="btn btn-outline" href="#academics">See Our Programs</a>
+      </div>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 420 420" width="100%">
+        <circle cx="300" cy="110" r="70" fill="#C99A3B"/>
+        <path d="M0 300 Q80 230 160 290 T320 270 T420 300 V420 H0 Z" fill="#2F5A44"/>
+        <path d="M0 340 Q100 290 210 330 T420 330 V420 H0 Z" fill="#1F3B2E"/>
+        <rect x="150" y="230" width="90" height="90" rx="3" fill="#FCFAF3"/>
+        <rect x="165" y="250" width="24" height="24" fill="#1F3B2E"/>
+        <rect x="201" y="250" width="24" height="24" fill="#1F3B2E"/>
+        <path d="M150 230 L195 200 L240 230 Z" fill="#B0543A"/>
+        <rect x="180" y="280" width="30" height="40" fill="#B0543A"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><strong>Five stages</strong><span>Early Childhood through Senior High, one campus</span></div>
+    <div class="fact"><strong>Founder-led</strong><span>Run day-to-day by the school's own administration</span></div>
+    <div class="fact"><strong>Open to all faiths</strong><span>Non-denominational, values-centered</span></div>
+    <div class="fact"><strong>Community rooted</strong><span>Serving families across the region</span></div>
+  </div>
+</div>
+
+<section class="pad" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <svg viewBox="0 0 200 200" width="100%" style="max-width:260px">
+        <rect width="200" height="200" rx="4" fill="#E6EDE4"/>
+        <circle cx="75" cy="90" r="34" fill="#2F5A44"/>
+        <circle cx="130" cy="90" r="34" fill="#C99A3B"/>
+        <rect x="45" y="130" width="60" height="50" rx="4" fill="#2F5A44"/>
+        <rect x="100" y="130" width="60" height="50" rx="4" fill="#C99A3B"/>
+      </svg>
+      <div class="founders">
+        <div class="founder">
+          <div class="fname">[Founder Name]</div>
+          <div class="frole">Founder &amp; Principal</div>
+        </div>
+      </div>
+      <div class="founder" style="margin-top:8px;">
+        <div>
+          <div class="fname">[Co-Founder Name]</div>
+          <div class="frole">Co-Founder</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">About the school</div>
+      <h2>A full continuum, built so families never have to leave</h2>
+      <p>Most schools in an area stop after one stage, sending families searching for the next one. This school was built to close that gap — early childhood, primary, junior, secondary and senior high, all under one administration, so a child can start here and finish here.</p>
+      <p>The school is non-denominational and welcomes children of every faith background, while holding shared values at the center of how staff and students treat one another. <em>(Adjust this line to match your own school's values.)</em></p>
+      <div class="motto">"Learning Today, Leading Tomorrow" — swap in your own school's motto here.</div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="academics" style="background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Every stage, on one campus</h2>
+      <p style="margin:0;">A child's full path from their first day of school to graduation, taught by staff who know them the whole way through.</p>
+    </div>
+    <div class="program">
+      <div class="stage">01</div>
+      <div><h3>Early Childhood</h3><p>A gentle, play-centered start — first letters, first numbers, and the routines that make a classroom feel safe.</p></div>
+    </div>
+    <div class="program">
+      <div class="stage">02</div>
+      <div><h3>Primary</h3><p>The core subjects and habits that everything later builds on, taught with steady, consistent attention.</p></div>
+    </div>
+    <div class="program">
+      <div class="stage">03</div>
+      <div><h3>Junior High</h3><p>Students begin working across more subjects and take on more responsibility for their own learning.</p></div>
+    </div>
+    <div class="program">
+      <div class="stage">04</div>
+      <div><h3>Secondary</h3><p>Deeper subject study and the discipline needed for national examinations ahead.</p></div>
+    </div>
+    <div class="program">
+      <div class="stage">05</div>
+      <div><h3>Senior High</h3><p>The final stretch — preparing students for national examinations and whatever comes after graduation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="why">
+  <div class="wrap">
+    <div class="section-head"><h2>Why families choose this school</h2></div>
+    <div class="why-grid">
+      <div class="why-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C99A3B" stroke-width="1.6"><path d="M3 10l9-6 9 6-9 6-9-6z"/><path d="M7 12v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg>
+        <h3>One school, every stage</h3>
+        <p>No changing schools between early childhood and senior high — teachers and administrators know each child for years, not one term.</p>
+      </div>
+      <div class="why-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C99A3B" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <h3>Led by its founders</h3>
+        <p>The founders run the school directly — decisions about a child's progress happen with people who are actually on campus.</p>
+      </div>
+      <div class="why-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C99A3B" stroke-width="1.6"><path d="M12 21s-7-4.5-7-10a5 5 0 0110-1 5 5 0 0110 1c0 5.5-7 10-7 10z"/></svg>
+        <h3>Rooted in the community</h3>
+        <p>Built for families close to home — open to every faith background, grounded in shared values.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad admissions" id="admissions">
+  <div class="wrap">
+    <div class="section-head"><h2>Starting the admissions process</h2></div>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h4>Reach out</h4><p>Call or email the school office to ask about openings for your child's grade level.</p></div>
+      <div class="step"><span class="num">2</span><h4>Visit the campus</h4><p>Meet the founders, see the classrooms, and get your questions answered in person.</p></div>
+      <div class="step"><span class="num">3</span><h4>Submit records</h4><p>Bring prior school records and the documents the office asks for.</p></div>
+      <div class="step"><span class="num">4</span><h4>Confirm enrollment</h4><p>Complete registration and your child is ready to begin classes.</p></div>
+    </div>
+    <div class="admit-cta">
+      <p>The fastest way to start is a phone call — the office can tell you the same day whether there's space in your child's grade.</p>
+      <a class="btn btn-primary" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head"><h2>Around campus</h2></div>
+    <div class="gallery-grid">
+      <div class="gtile" style="background:#2F5A44;"><svg viewBox="0 0 100 125"><rect width="100" height="125" fill="#2F5A44"/><rect x="20" y="30" width="60" height="45" fill="#FCFAF3" opacity=".9"/><line x1="50" y1="30" x2="50" y2="75" stroke="#2F5A44" stroke-width="2"/></svg><div class="cap">Classrooms</div></div>
+      <div class="gtile" style="background:#1F3B2E;"><svg viewBox="0 0 100 125"><rect width="100" height="125" fill="#1F3B2E"/><circle cx="50" cy="55" r="20" fill="#C99A3B"/></svg><div class="cap">Courtyard</div></div>
+      <div class="gtile" style="background:#B0543A;"><svg viewBox="0 0 100 125"><rect width="100" height="125" fill="#B0543A"/><rect x="30" y="40" width="40" height="50" fill="#FCFAF3" opacity=".9"/></svg><div class="cap">Library corner</div></div>
+      <div class="gtile" style="background:#C99A3B;"><svg viewBox="0 0 100 125"><rect width="100" height="125" fill="#C99A3B"/><path d="M20 90 Q50 40 80 90 Z" fill="#1F3B2E"/></svg><div class="cap">Assembly grounds</div></div>
+    </div>
+    <p style="margin-top:16px; font-size:.85rem;">Placeholder artwork — ready to swap in real campus photography.</p>
+  </div>
+</section>
+
+<section class="pad" id="contact" style="background:var(--cream); border-top:1px solid var(--line);">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2>Talk to the school office</h2>
+      <ul class="contact-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Your School Address, City, Country</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.9 2.2z"/></svg>+000 000-0000</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>info@yourschool.com</li>
+      </ul>
+    </div>
+    <form class="msg" onsubmit="sendMsg(event)">
+      <div class="field"><label>Your name</label><input required name="name" type="text"></div>
+      <div class="field"><label>Phone or email</label><input required name="contact" type="text"></div>
+      <div class="field"><label>Message</label><textarea required name="message" placeholder="Tell us your child's grade level and any questions."></textarea></div>
+      <button class="btn btn-primary" type="submit" style="justify-self:start;">Send Message</button>
+      <div class="formnote" id="msgnote"></div>
+    </form>
+  </div>
+</section>
+
+<section class="pad" id="getstarted" style="background:#1F3B2E;">
+  <div class="wrap" style="text-align:center; max-width:640px;">
+    <div class="eyebrow" style="color:#C99A3B;">From Baytechpage</div>
+    <h2 style="color:#F7F2E7;">Want a site like this for your school?</h2>
+    <p style="color:rgba(247,242,231,.78); margin:0 auto 26px;">Everything you just looked through — academics, admissions, and the private Owner Portal for managing inquiries, announcements and fees — can be rebuilt with your school's own name, colors, and content, live within days.</p>
+    <a class="btn btn-primary" href="https://baysahtech-ds-portfolio.vercel.app" target="_blank" rel="noopener">See Baytechpage's Work</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="brandmark" style="margin-bottom:12px;">
+        <svg viewBox="0 0 40 40" fill="none" width="28" height="28"><circle cx="20" cy="20" r="19" stroke="#C99A3B" stroke-width="2"/><path d="M11 24l9-13 9 13" stroke="#F7F2E7" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>
+        <span class="name">Northbridge International School</span>
+      </div>
+      <p style="color:#B9C2B7; font-size:.85rem;">A full education, one campus, one community.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#admissions">Admissions</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+0000000000">+000 000-0000</a>
+      <a href="mailto:info@yourschool.com">info@yourschool.com</a>
+      <a href="#" onclick="openPortal();return false;">Owner Portal</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="yr"></span> Northbridge International School</span>
+    <span>Learning Today, Leading Tomorrow</span>
+  </div>
+</footer>
+</div>
+
+<!-- ================= OWNER PORTAL ================= -->
+<div id="portal" hidden>
+  <div class="portal-header">
+    <a class="brandmark" href="#" onclick="closePortal();return false;">
+      <svg viewBox="0 0 40 40" fill="none" width="26" height="26"><circle cx="20" cy="20" r="19" stroke="#C99A3B" stroke-width="2"/><path d="M11 24l9-13 9 13" stroke="#F7F2E7" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>
+      <span class="name">Owner Portal</span>
+    </a>
+    <button class="btn btn-ghost" onclick="closePortal()">← Back to Website</button>
+  </div>
+
+  <div id="loginview" class="login-wrap">
+    <div class="login-card">
+      <h2>Sign in</h2>
+      <p class="small">Prototype login for school founders and staff.</p>
+      <form onsubmit="doLogin(event)">
+        <div class="field"><label>Username</label><input name="u" type="text" value="admin"></div>
+        <div class="field"><label>Password</label><input name="p" type="password" value="demo123"></div>
+        <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center;">Sign In</button>
+      </form>
+      <div class="demo-note">This is a working prototype — any username and password will let you in, so you can try the dashboard yourself. A production version would connect to a real login system.</div>
+    </div>
+  </div>
+
+  <div id="dashview" class="dash" style="display:none;">
+    <div class="dash-side">
+      <button class="active" data-panel="overview" onclick="showPanel('overview',this)">Overview</button>
+      <button data-panel="inquiries" onclick="showPanel('inquiries',this)">Admissions Inquiries</button>
+      <button data-panel="announce" onclick="showPanel('announce',this)">Announcements</button>
+      <button data-panel="fees" onclick="showPanel('fees',this)">Fee Schedule</button>
+      <button data-panel="gallery" onclick="showPanel('gallery',this)">Gallery</button>
+    </div>
+    <div class="dash-main">
+
+      <div class="panel active" id="panel-overview">
+        <h2>Welcome back <span class="demo-badge">Demo data</span></h2>
+        <p style="margin:6px 0 0;">Here's a snapshot of what's happening at the school this month.</p>
+        <div class="tiles">
+          <div class="tile"><div class="num">12</div><div class="lbl">New admissions inquiries</div></div>
+          <div class="tile"><div class="num">4</div><div class="lbl">Announcements published</div></div>
+          <div class="tile"><div class="num">Oct 3</div><div class="lbl">Next event — Open House</div></div>
+        </div>
+        <p style="font-size:.88rem;">Use the menu on the left to review inquiries, post announcements the website can display, or update the fee schedule families see online.</p>
+      </div>
+
+      <div class="panel" id="panel-inquiries">
+        <h2>Admissions Inquiries <span class="demo-badge">Demo data</span></h2>
+        <p style="margin:6px 0 18px;">Families who reached out through the website contact form.</p>
+        <table class="dtable">
+          <thead><tr><th>Name</th><th>Grade applying for</th><th>Date</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Josephine M.</td><td>Grade 2</td><td>Sep 18, 2026</td><td><span class="status">New</span></td></tr>
+            <tr><td>Emmanuel K.</td><td>Grade 7</td><td>Sep 15, 2026</td><td><span class="status">Contacted</span></td></tr>
+            <tr><td>Ruth B.</td><td>Early Childhood</td><td>Sep 10, 2026</td><td><span class="status">Enrolled</span></td></tr>
+            <tr><td>Samuel D.</td><td>Grade 10</td><td>Sep 6, 2026</td><td><span class="status">New</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel" id="panel-announce">
+        <h2>Announcements</h2>
+        <p style="margin:6px 0 18px;">Post an update — it will appear here and, in the full build, on the school's website too.</p>
+        <form class="add-form" onsubmit="addAnnouncement(event)">
+          <input name="t" type="text" placeholder="Announcement title" required>
+          <textarea name="m" placeholder="Details for families" required></textarea>
+          <button class="btn btn-primary" type="submit">Publish</button>
+        </form>
+        <div id="annlist"></div>
+      </div>
+
+      <div class="panel" id="panel-fees">
+        <h2>Fee Schedule <span class="demo-badge">Sample — edit to update</span></h2>
+        <p style="margin:6px 0 18px;">Click any amount to edit. In the full build this updates what families see on the Admissions page.</p>
+        <table class="dtable" id="feetable">
+          <thead><tr><th>Level</th><th>Registration</th><th>Term Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Early Childhood</td><td><input value="____"></td><td><input value="____"></td></tr>
+            <tr><td>Primary</td><td><input value="____"></td><td><input value="____"></td></tr>
+            <tr><td>Junior High</td><td><input value="____"></td><td><input value="____"></td></tr>
+            <tr><td>Secondary / Senior High</td><td><input value="____"></td><td><input value="____"></td></tr>
+          </tbody>
+        </table>
+        <button class="btn btn-outline" style="margin-top:16px;" onclick="saveFees()">Save Changes</button>
+        <span id="feesaved" style="font-size:.82rem; color:var(--ink-soft); margin-left:10px;"></span>
+      </div>
+
+      <div class="panel" id="panel-gallery">
+        <h2>Gallery</h2>
+        <p style="margin:6px 0 18px;">In the full build, the owner uploads real campus photos here and they replace the placeholder artwork on the public site.</p>
+        <div class="gallery-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="gtile" style="background:#2F5A44; aspect-ratio:1;"></div>
+          <div class="gtile" style="background:#1F3B2E; aspect-ratio:1;"></div>
+          <div class="gtile" style="background:#B0543A; aspect-ratio:1;"></div>
+          <div class="gtile" style="background:#C99A3B; aspect-ratio:1;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+function openPortal(){
+  document.getElementById('app').hidden = true;
+  document.getElementById('portal').hidden = false;
+  window.scrollTo(0,0);
+}
+function closePortal(){
+  document.getElementById('portal').hidden = true;
+  document.getElementById('app').hidden = false;
+  document.getElementById('loginview').style.display = 'flex';
+  document.getElementById('dashview').style.display = 'none';
+  window.scrollTo(0,0);
+}
+function doLogin(e){
+  e.preventDefault();
+  document.getElementById('loginview').style.display = 'none';
+  document.getElementById('dashview').style.display = 'grid';
+  renderAnnouncements();
+  loadFees();
+}
+function showPanel(id, btn){
+  document.querySelectorAll('.dash-side button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+}
+function sendMsg(e){
+  e.preventDefault();
+  document.getElementById('msgnote').textContent = 'Message received — the office will follow up by phone or email. (Prototype: not yet wired to a real inbox.)';
+  e.target.reset();
+}
+
+var defaultAnnouncements = [
+  {t:'Open House — October 3', m:'Families are welcome to tour classrooms and meet teachers ahead of the next term.', d:'Sep 20, 2026'},
+  {t:'New term begins', m:'Registration is open for all grade levels for the upcoming term.', d:'Sep 12, 2026'}
+];
+function getAnnouncements(){
+  try{
+    var raw = localStorage.getItem('school_announcements');
+    return raw ? JSON.parse(raw) : defaultAnnouncements;
+  }catch(err){ return defaultAnnouncements; }
+}
+function saveAnnouncements(list){
+  try{ localStorage.setItem('school_announcements', JSON.stringify(list)); }catch(err){}
+}
+function renderAnnouncements(){
+  var list = getAnnouncements();
+  var el = document.getElementById('annlist');
+  el.innerHTML = '';
+  list.forEach(function(a, i){
+    var div = document.createElement('div');
+    div.className = 'ann-item';
+    var h = document.createElement('h4'); h.textContent = a.t;
+    var meta = document.createElement('div'); meta.className='meta'; meta.textContent = a.d;
+    var p = document.createElement('p'); p.textContent = a.m;
+    var del = document.createElement('button'); del.className='del'; del.textContent='Remove'; del.onclick = function(){ removeAnnouncement(i); };
+    div.appendChild(h); div.appendChild(meta); div.appendChild(p); div.appendChild(del);
+    el.appendChild(div);
+  });
+}
+function addAnnouncement(e){
+  e.preventDefault();
+  var f = e.target;
+  var list = getAnnouncements();
+  list.unshift({t:f.t.value, m:f.m.value, d:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})});
+  saveAnnouncements(list);
+  f.reset();
+  renderAnnouncements();
+}
+function removeAnnouncement(i){
+  var list = getAnnouncements();
+  list.splice(i,1);
+  saveAnnouncements(list);
+  renderAnnouncements();
+}
+function loadFees(){
+  try{
+    var raw = localStorage.getItem('school_fees');
+    if(!raw) return;
+    var vals = JSON.parse(raw);
+    var inputs = document.querySelectorAll('#feetable input');
+    inputs.forEach(function(inp,i){ if(vals[i] !== undefined) inp.value = vals[i]; });
+  }catch(err){}
+}
+function saveFees(){
+  var inputs = document.querySelectorAll('#feetable input');
+  var vals = Array.prototype.map.call(inputs, function(i){ return i.value; });
+  try{ localStorage.setItem('school_fees', JSON.stringify(vals)); }catch(err){}
+  document.getElementById('feesaved').textContent = 'Saved just now.';
+  setTimeout(function(){ document.getElementById('feesaved').textContent=''; }, 2500);
+}
+</script>
+</body>
+</html>
